@@ -22,6 +22,8 @@ Esse projeto provê um Web Service Restful, onde terá a função de encurtar UR
 
 Como padrão, o projeto vem configurado para acessar a instância local do mysql. Caso deseja alterar as informações de conexão com o banco de dados, sinta-se livre para editar os valores no arquivo ```config.json```, dentro da pasta config
 
+Como melhores práticas para um Web service que irá realizar comandos no banco de dados, utilizei o um connection pool para conexão com o banco. Dessa forma, não será preciso ficar abrindo uma conexão toda vez que um request é feito, assim aumentamos a velocidade e dimuimos a quantidade de esforço do banco de dados.
+
 **Utilização**
 
 *Enpoints*
