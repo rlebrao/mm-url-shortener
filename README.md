@@ -32,7 +32,8 @@ Como padrão, o projeto vem configurado para acessar a instância local do mysql
      * Parâmetros: 
          * "url" - URL que deve ser encurtada 
      * Exemplo de envio:
-         ``` curl -X POST \
+         ``` 
+             curl -X POST \
              http://127.0.0.1:5000/shorturl \
              -H 'Content-Type: application/json' \
              -d '{
@@ -48,3 +49,24 @@ Como padrão, o projeto vem configurado para acessar a instância local do mysql
          ```
      
  * http://127.0.0.1:5000/get-details
+     * Esse endpoint é responsável por retornar todas as URLs cadastradas, com a versão encurtada, versão original, total de cliques e a data que ela foi gerada.
+     * Métodos permitidos: **GET**
+     * Exemplo de envio:
+      ``` json
+      curl -X GET \
+      http://localhost:5000/get-details \
+      -H 'Content-Type: application/json' \
+      ```
+     * Exemplo de respota:
+     ``` json  
+     {
+     "url_details": [
+        {
+            "original": "https://g1.com.br",
+            "short": "https://mm.com/2935E2",
+            "timestamp": "Wed, 17 Apr 2019 10:26:37 GMT",
+            "total_clicks": 1554
+        }
+    ]
+   }
+     ```
