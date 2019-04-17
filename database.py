@@ -1,12 +1,15 @@
 # from app import app
 import mysql.connector
 from mysql.connector import pooling
+
+#static database configuration
 db_config = {
     'hostname': 'localhost',
     'username':'root',
     'password':'',
     'database':'url_info'
 }
+#Creates a connection pool
 class Database:
     def __init__(self, pool_name="mm-pool", pool_size=3):
         self.hostname = db_config['hostname']

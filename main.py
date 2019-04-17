@@ -31,6 +31,7 @@ class UrlShortener(Resource):
         db.execute(str_sql_insert, list_args, True)
         return jsonify(original=json_request['url'], short=str_short_url)
 
+#Defines the endpoints
 api.add_resource(UrlStatistics,'/get-details')
 api.add_resource(UrlShortener, '/shorturl')
 
