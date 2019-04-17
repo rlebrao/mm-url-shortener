@@ -33,9 +33,9 @@ class Database:
     def close(self, conn, cursor):
         cursor.close()
         conn.close()
-    def execute(self, sql, args=None, commit=True):
+    def execute(self, sql, args=None, commit=False):
         conn = self.pool.get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         if args:
             cursor.execute(sql, args)
         else:
@@ -47,5 +47,5 @@ class Database:
         else:
             res = cursor.fetchall()
             self.close(conn, cursor)
-            return res     
+            return res
         
