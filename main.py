@@ -16,12 +16,17 @@ class UrlStatistics(Resource):
 
 class UrlShortener(Resource):
     def post(self):
-        json_request = request.get_json()
+        try:
+            json_request = request.get_json()
+            if json_request['url'] == "":
+                abort(400, description="Url cannot be empty")
+        except:
+            abort(400)
         objUrlShortener = custom_url_shortener.CustomUrlShortener()
         str_short_url = objUrlShortener.doShortener(json_request['url'])['short']
         str_mm_cod = str_short_url.split('/')[3]
         db = Database()
-        str_sql_insert = "insert into shortened_url(mm_cod, original_url, total_clicks, new_url) values ('%s','%s',%d,'%s')"
+        str_sql_insert = "insert into shortened_url(mm_cod, original_url, total_clicks, new_url) values (%s,%s,%s,%s)"
         list_args = (str_mm_cod, json_request['url'], random.randint(1,2000), str_short_url)
         db.execute(str_sql_insert, list_args, True)
         return jsonify(original=json_request['url'], short=str_short_url)

@@ -37,9 +37,15 @@ class Database:
         conn = self.pool.get_connection()
         cursor = conn.cursor(dictionary=True)
         if args:
-            cursor.execute(sql, args)
+            try:
+                cursor.execute(sql, args)
+            except Exception:
+                raise ValueError("There was an error")
         else:
-            cursor.execute(sql)
+            try:
+                cursor.execute(sql)
+            except Exception:
+                raise ValueError("There was an error")
         if commit is True:
             conn.commit()
             self.close(conn,cursor)
