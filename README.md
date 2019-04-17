@@ -15,14 +15,14 @@ Esse projeto provê um Web Service Restful, onde terá a função de encurtar UR
 2) Além do Python 3.6+, deve-se também possuir instalado o [pip](https://pypi.org/project/pip/) (Recomenda-se estar na versão mais atualizada)
 3) Faça o download, ou clone esse projeto para sua máquina local.
 4) Entre via linha de comando na pasta raíz do projeto e execute: ```pip install -r requirements.txt ``` para instalar todas as dependências
-5) Você também deverá possuir uma instância do MySQL em sua máquina local. Sendo assim, poderá importar o arquivo url_info.sql em seu banco de dados, que será responsável por criar as tabelas necessárias para o funcionamento do serviço
+5) Você também deverá possuir uma instância do MySQL em sua máquina local. Sendo assim, poderá importar o arquivo ``` url_info.sql ```, dentro da pasta ``` /etc ``` em seu banco de dados, que será responsável por criar as tabelas necessárias para o funcionamento do serviço
 6) Agora basta entrar na linha de comando e executar ```python main.py``` para inciar o serviço. O serviço irá ser iniciado no localhost na porta 5000 (http://127.0.0.1:5000)
 
 **Configuração**
 
 Como padrão, o projeto vem configurado para acessar a instância local do mysql. Caso deseja alterar as informações de conexão com o banco de dados, sinta-se livre para editar os valores no arquivo ```config.json```, dentro da pasta config
 
-Como melhores práticas para um Web service que irá realizar comandos no banco de dados, utilizei o um connection pool para conexão com o banco. Dessa forma, não será preciso ficar abrindo uma conexão toda vez que um request é feito, assim aumentamos a velocidade e dimuimos a quantidade de esforço do banco de dados.
+Como melhores práticas para um Web service que irá realizar comandos no banco de dados, utilizei um connection pool para conexão com o banco. Dessa forma, não será preciso ficar abrindo uma conexão toda vez que um request é feito, assim aumentamos a velocidade e dimuimos a quantidade de esforço do banco de dados.
 
 **Utilização**
 
