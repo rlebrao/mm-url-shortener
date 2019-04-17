@@ -1,0 +1,8 @@
+{
+    "DATABASE":{
+        "hostname":"localhost",
+        "username":"root",
+        "password":"",
+        "database":"url_info"
+    }
+}

@@ -1,14 +1,11 @@
 # from app import app
 import mysql.connector
 from mysql.connector import pooling
+import json
 
 #static database configuration
-db_config = {
-    'hostname': 'localhost',
-    'username':'root',
-    'password':'',
-    'database':'url_info'
-}
+with open('config/config.json','r') as c:
+    db_config = json.load(c)['DATABASE']
 #Creates a connection pool
 class Database:
     def __init__(self, pool_name="mm-pool", pool_size=3):
