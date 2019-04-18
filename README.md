@@ -33,6 +33,7 @@ Como melhores práticas para um Web service que irá realizar comandos no banco 
      * Métodos permitidos: **POST**
      * Parâmetros: 
          * "url" - URL que deve ser encurtada 
+     * Content Type: "application/json"
      * Exemplo de envio:
          ``` 
              curl -X POST \
